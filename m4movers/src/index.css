@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Poppins", "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-navy: #0A1B3D;
+  --color-navy-light: #142a5c;
+  --color-brand: #0B63F6;
+  --color-brand-dark: #084ecf;
+  --color-brand-light: #eaf1ff;
+  --color-accent: #FF7A29;
+  --color-accent-light: #fff1e6;
+  --color-mist: #F5F8FD;
+  --color-ink: #1E293B;
+  --color-ink-soft: #55617a;
+
+  --shadow-soft: 0 20px 45px -20px rgba(10, 27, 61, 0.25);
+  --shadow-card: 0 12px 30px -12px rgba(10, 27, 61, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-mist);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Signature: dashed route line motif used across the site */
+.route-line {
+  stroke-dasharray: 10 10;
+  animation: route-dash 40s linear infinite;
+}
+@keyframes route-dash {
+  to { stroke-dashoffset: -1000; }
+}
+
+.route-dot {
+  animation: route-move 6s ease-in-out infinite;
+}
+@keyframes route-move {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(14px); }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .route-line, .route-dot, * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  html { scroll-behavior: auto; }
+}
