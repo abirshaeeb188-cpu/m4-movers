@@ -8,6 +8,11 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Login from './pages/login';
+import Signup from './pages/Signup';
+import Comments from './pages/Comments';
+import Profile from './pages/Profile';
+import StoreProduct from './pages/StoreProduct';
 
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -33,6 +38,11 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/comments" element={<Comments />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/store-product" element={<StoreProduct />} />
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>

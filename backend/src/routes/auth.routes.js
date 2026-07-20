@@ -1,30 +1,12 @@
-import { Router } from 'express'
-import rateLimit from 'express-rate-limit'
-import {
-  register,
-  verifyEmail,
-  resendVerification,
-  login,
-  me,
-  forgotPassword,
-  verifyResetCode,
-  resetPassword,
-} from '../controllers/auth.controller.js'
-import { requireAuth } from '../middleware/auth.js'
+import express from 'express';
+import { register, login, getMe, updateAvatar } from '../controllers/auth.controller.js';
+import protect from '../middleware/user-auth.js';
 
-const router = Router()
+const router = express.Router();
 
-// Basic brute-force protection on sensitive endpoints
-const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 30, standardHeaders: true, legacyHeaders: false })
+router.post('/register', register);
+router.post('/login', login);
+router.get('/me', protect, getMe);
+router.post('/avatar', protect, updateAvatar);
 
-router.post('/register', authLimiter, register)
-router.post('/verify-email', authLimiter, verifyEmail)
-router.post('/resend-verification', authLimiter, resendVerification)
-router.post('/login', authLimiter, login)
-router.get('/me', requireAuth, me)
-
-router.post('/forgot-password', authLimiter, forgotPassword)
-router.post('/verify-reset-code', authLimiter, verifyResetCode)
-router.post('/reset-password', authLimiter, resetPassword)
-
-export default router
+export default router;

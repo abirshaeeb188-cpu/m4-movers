@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, User } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, User, MessageSquare, Package } from 'lucide-react';
 import { services } from '../data/services';
 import { useAuth } from '../context/AuthContext';
 import { useCompanyConfig } from '../hooks/useCompanyConfig';
+import logo from '../assets/m4_logo.png';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -36,12 +37,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img
-              src="/truck-icon.svg"
-              alt="M4 Movers"
-              className="h-10 w-10 rounded-xl"
-            />
-            <span className="font-display font-bold text-xl text-navy tracking-tight">
+            <img src={logo} alt="M4 Movers" className="h-10 w-15 rounded-xl" />
+            <span className="font-display -ml-2 font-bold text-xl text-navy tracking-tight">
               M4 <span className="text-brand">Movers</span>
             </span>
           </Link>
@@ -116,11 +113,50 @@ export default function Navbar() {
               </span>
               {config.phone}
             </a>
-            <Link
-              to="/contact"
-              className="px-5 py-2.5 rounded-full bg-accent text-white text-sm font-semibold shadow-[0_10px_25px_-8px_rgba(255,122,41,0.6)] hover:bg-orange-600 transition-colors">
-              Get Free Quote
-            </Link>
+
+            <NavLink
+              to="/comments"
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'border-brand text-brand bg-brand-light'
+                    : 'border-navy/15 text-navy hover:bg-slate-50'
+                }`
+              }>
+              <MessageSquare size={16} />
+              Comments
+            </NavLink>
+
+            {user && (
+              <NavLink
+                to="/store-product"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-semibold transition-colors ${
+                    isActive
+                      ? 'border-brand text-brand bg-brand-light'
+                      : 'border-navy/15 text-navy hover:bg-slate-50'
+                  }`
+                }>
+                <Package size={16} />
+                Store Product
+              </NavLink>
+            )}
+
+            {user ? (
+              <button
+                onClick={() => navigate('/profile')}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-navy/15 text-navy text-sm font-semibold hover:bg-slate-50 transition-colors">
+                <User size={16} />
+                {user.name}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-white text-sm font-semibold shadow-[0_10px_25px_-8px_rgba(255,122,41,0.6)] hover:bg-orange-600 transition-colors">
+                <User size={16} />
+                Login
+              </Link>
+            )}
           </div>
 
           <button
@@ -145,31 +181,51 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <div className="flex gap-2 pt-3">
-            {user ? (
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  navigate('/profile');
-                }}
-                className="flex-1 px-4 py-3 rounded-xl border border-navy/15 text-navy text-sm font-semibold">
-                {user.name}
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setMobileOpen(false)}
-                className="flex-1 text-center px-4 py-3 rounded-xl border border-navy/15 text-navy text-sm font-semibold">
-                Login
-              </Link>
-            )}
-            <Link
-              to="/contact"
+
+          <a
+            href={`tel:${config.phone.replace(/\s/g, '')}`}
+            className="flex items-center gap-2 px-3 py-3 rounded-xl text-sm font-semibold text-navy">
+            <Phone size={16} />
+            {config.phone}
+          </a>
+
+          <NavLink
+            to="/comments"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center justify-center gap-2 w-full mt-2 px-4 py-3 rounded-xl border border-navy/15 text-navy text-sm font-semibold">
+            <MessageSquare size={16} />
+            Comments
+          </NavLink>
+
+          {user && (
+            <NavLink
+              to="/store-product"
               onClick={() => setMobileOpen(false)}
-              className="flex-1 text-center px-4 py-3 rounded-xl bg-accent text-white text-sm font-semibold">
-              Get Quote
+              className="flex items-center justify-center gap-2 w-full mt-2 px-4 py-3 rounded-xl border border-navy/15 text-navy text-sm font-semibold">
+              <Package size={16} />
+              Store Product
+            </NavLink>
+          )}
+
+          {user ? (
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                navigate('/profile');
+              }}
+              className="flex items-center justify-center gap-2 w-full mt-2 px-4 py-3 rounded-xl border border-navy/15 text-navy text-sm font-semibold">
+              <User size={16} />
+              {user.name}
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center gap-2 w-full mt-2 px-4 py-3 rounded-xl bg-accent text-white text-sm font-semibold">
+              <User size={16} />
+              Login
             </Link>
-          </div>
+          )}
         </div>
       )}
     </header>

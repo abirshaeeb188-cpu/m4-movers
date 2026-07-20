@@ -12,7 +12,7 @@ export const testimonials = [
     country: 'Abu Dhabi, UAE',
     rating: 5,
     review:
-      'Booked an office move over the weekend so we wouldn\'t lose a working day. The team labelled every box and had our new office set up before Monday.',
+      "Booked an office move over the weekend so we wouldn't lose a working day. The team labelled every box and had our new office set up before Monday.",
     image: 'https://i.pravatar.cc/100?img=32',
   },
   {
@@ -20,7 +20,7 @@ export const testimonials = [
     country: 'Sharjah, UAE',
     rating: 4,
     review:
-      'Good communication throughout and fair pricing for our apartment move. Only reason it\'s not five stars is a slightly late start, but the crew made up the time.',
+      "Good communication throughout and fair pricing for our apartment move. Only reason it's not five stars is a slightly late start, but the crew made up the time.",
     image: 'https://i.pravatar.cc/100?img=15',
   },
   {
@@ -39,7 +39,7 @@ export const testimonials = [
       'International move from London to Dubai handled door-to-door. Customs paperwork was sorted for us and delivery tracking kept us updated the whole way.',
     image: 'https://i.pravatar.cc/100?img=51',
   },
-]
+];
 
 export const faqs = [
   {
@@ -68,14 +68,14 @@ export const faqs = [
   },
   {
     q: 'How is pricing calculated?',
-    a: 'Pricing depends on the size of your move, distance, and any add-ons like packing or storage. Request a free quote and we\'ll confirm a fixed price before booking.',
+    a: "Pricing depends on the size of your move, distance, and any add-ons like packing or storage. Request a free quote and we'll confirm a fixed price before booking.",
   },
   {
-    q: 'Do you offer storage if my new home isn\'t ready?',
-    a: 'Yes, we offer short and long-term storage in a secure, monitored facility so your move-out and move-in dates don\'t need to align exactly.',
+    q: "Do you offer storage if my new home isn't ready?",
+    a: "Yes, we offer short and long-term storage in a secure, monitored facility so your move-out and move-in dates don't need to align exactly.",
   },
   {
-    q: 'What items can\'t be moved?',
+    q: "What items can't be moved?",
     a: 'For safety and legal reasons we cannot transport hazardous materials, flammable liquids, firearms, or perishable food items.',
   },
   {
@@ -90,36 +90,85 @@ export const faqs = [
     q: 'What payment methods do you accept?',
     a: 'We accept cash, all major debit/credit cards, and bank transfer. Payment is due on completion unless otherwise agreed in your quote.',
   },
-]
+];
 
 export const stats = [
   { label: 'Years Experience', value: 15, suffix: '+' },
   { label: 'Happy Customers', value: 10000, suffix: '+' },
-  { label: 'Successful Moves', value: 35000, suffix: '+' },
-  { label: 'Star Rating', value: 4.9, suffix: '' },
-]
+  { label: 'Successful Moves', value: 22000, suffix: '+' },
+  { label: 'Star Rating', value: 4.8, suffix: '' },
+];
 
 export const features = [
-  { title: '24/7 Support', desc: 'Round-the-clock assistance before, during and after your move.' },
-  { title: 'Licensed Company', desc: 'Fully licensed and compliant with UAE moving regulations.' },
-  { title: 'Experienced Staff', desc: 'Trained crews who handle every item like it\'s their own.' },
-  { title: 'Affordable Pricing', desc: 'Transparent, fixed quotes with zero hidden charges.' },
-]
+  {
+    title: '24/7 Support',
+    desc: 'Round-the-clock assistance before, during and after your move.',
+  },
+  {
+    title: 'Licensed Company',
+    desc: 'Fully licensed and compliant with UAE moving regulations.',
+  },
+  {
+    title: 'Experienced Staff',
+    desc: "Trained crews who handle every item like it's their own.",
+  },
+  {
+    title: 'Affordable Pricing',
+    desc: 'Transparent, fixed quotes with zero hidden charges.',
+  },
+];
 
 export const whyChooseUs = [
-  { title: 'Professional Team', desc: 'Trained, uniformed crews for every job size.' },
-  { title: 'Affordable Prices', desc: 'Fixed quotes with no surprise charges.' },
-  { title: 'Safe Delivery', desc: 'Padded wrapping and secure loading, every time.' },
+  {
+    title: 'Professional Team',
+    desc: 'Trained, uniformed crews for every job size.',
+  },
+  {
+    title: 'Affordable Prices',
+    desc: 'Fixed quotes with no surprise charges.',
+  },
+  {
+    title: 'Safe Delivery',
+    desc: 'Padded wrapping and secure loading, every time.',
+  },
   { title: 'Fully Insured', desc: 'Transit insurance included on every move.' },
-  { title: 'Fast Response', desc: 'Quotes answered within the hour, most days.' },
-  { title: '24/7 Support', desc: 'A real person, any time you need to reach us.' },
-  { title: 'GPS Tracking', desc: 'Live truck tracking shared with you on move day.' },
-  { title: 'Experienced Movers', desc: '15+ years moving homes and offices across the UAE.' },
-]
+  {
+    title: 'Fast Response',
+    desc: 'Quotes answered within the hour, most days.',
+  },
+  {
+    title: '24/7 Support',
+    desc: 'A real person, any time you need to reach us.',
+  },
+  {
+    title: 'GPS Tracking',
+    desc: 'Live truck tracking shared with you on move day.',
+  },
+  {
+    title: 'Experienced Movers',
+    desc: '15+ years moving homes and offices across the UAE.',
+  },
+];
 
 export const process = [
-  { step: '01', title: 'Book Your Move', desc: 'Share your move details and get a fixed quote in minutes.' },
-  { step: '02', title: 'We Pack Everything', desc: 'Our crew arrives on schedule and packs with premium materials.' },
-  { step: '03', title: 'Safe Transportation', desc: 'GPS-tracked trucks carry your belongings securely to the new address.' },
-  { step: '04', title: 'Delivery & Setup', desc: 'We unload, unpack on request, and reassemble your furniture.' },
-]
+  {
+    step: '01',
+    title: 'Book Your Move',
+    desc: 'Share your move details and get a fixed quote in minutes.',
+  },
+  {
+    step: '02',
+    title: 'We Pack Everything',
+    desc: 'Our crew arrives on schedule and packs with premium materials.',
+  },
+  {
+    step: '03',
+    title: 'Safe Transportation',
+    desc: 'GPS-tracked trucks carry your belongings securely to the new address.',
+  },
+  {
+    step: '04',
+    title: 'Delivery & Setup',
+    desc: 'We unload, unpack on request, and reassemble your furniture.',
+  },
+];

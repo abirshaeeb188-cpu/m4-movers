@@ -22,9 +22,9 @@ async function run() {
     if (existing.rowCount === 0) {
       const hash = await bcrypt.hash(adminPassword, 10)
       await pool.query(
-        `INSERT INTO users (full_name, email, phone, password_hash, role, is_verified, status)
-         VALUES ($1, $2, $3, $4, 'admin', TRUE, 'active')`,
-        [adminName, adminEmail, '+971500000000', hash]
+        `INSERT INTO users (name, email, password)
+         VALUES ($1, $2, $3)`,
+        [adminName, adminEmail, hash]
       )
       console.log(`Seeded admin account: ${adminEmail}`)
     } else {
